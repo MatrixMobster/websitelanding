@@ -2,69 +2,12 @@
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,300);
 @import url(https://fonts.googleapis.com/css?family=Sanchez);
-@import url(https://fonts.googleapis.com/css?family=Tangerine");
-
-
-@keyframes scroll {
-	0% { height: 0 }
-	100% { height: 100%; }
-}
-
-@keyframes type { 
-  from { width: 0; } 
-} 
-
-@keyframes type2 {
-  0%{width: 0;}
-  50%{width: 0;}
-  100%{ width: 100; } 
-} 
-
-@keyframes blink {
-  to{opacity: .0;}
-}
-
-@keyframes scan {
-	from { top: 0 }
-	to { top: 100% }
-}
-
-
-/* I did remove the flickering effect, lot's of people though it was annnoying, maybe we can work on it to make it less annoying people will end up with headache
- * @keyframes flicker {
-		0% { opacity: 0.15795 }
-		5% { opacity: 0.31511 }
-		10% { opacity: 0.94554 }
-		15% { opacity: 0.2469 }
-		20% { opacity: 0.62031 }
-		25% { opacity: 0.0293 }
-		30% { opacity: 0.00899 }
-		35% { opacity: 0.5344 }
-		40% { opacity: 0.12778 }
-		45% { opacity: 0.52042 }
-		50% { opacity: 0.3823 }
-		55% { opacity: 0.2198 }
-		60% { opacity: 0.9383 }
-		65% { opacity: 0.86615 }
-		70% { opacity: 0.68695 }
-		75% { opacity: 0.55749 }
-		80% { opacity: 0.96984 }
-		85% { opacity: 0.0361 }
-		90% { opacity: 0.24467 }
-		95% { opacity: 0.08351 }
-		100% { opacity: 0.54813 }
-}
-*/
-{
-	box-sizing: border-box;
-	}
-
-
+{box-sizing: border-box;}
 *{margin:0; padding:0;}
 /*CLEARFIX*/
 .clearfix:after {content: ".";	display: block;	clear: both; visibility: hidden; line-height: 0; height: 0;} 
 .clearfix {	display: inline-block; width:100%;} 
-html[xmlns] .clearfix {display: block;} 
+html .clearfix {display: block;} 
 * html .clearfix {height: 1%;}
 
 body {
@@ -141,7 +84,6 @@ nav #handle .downarrow {
 		left:				5px;
 		bottom:				0px;
 }
-
 .blurb {
 		clear:				both;
 }	
@@ -186,13 +128,13 @@ nav #handle .downarrow {
 \*------------------------------------*/
 .night-tabs {
     /* ->>> Structure <<<-*/
+	float: center;
     margin: 0 auto; /* Center Night Tabs; optional. */
-    width: 70%; /* Define width. */
+    width: 50%; /* Define width. */
     font: 300 0px/1.5
     "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Typography */
     color: #ecf0f1 /* Text Colors */
 }
-
 .night-tabs input {display: none} /* Hide Checkbox. */
 .night-tabs input:checked+label {cursor: default} /* Set cursor type. */
 .night-tabs label {
@@ -250,7 +192,6 @@ nav #handle .downarrow {
         -webkit-transition: all .8s .1s; /* ->>> Intensity of tab effects. <<<-*/
         transition: all .8s .1s
 }
-
 @charset "UTF-8";
 /**
  * CONTENTS - effects.css
@@ -497,8 +438,7 @@ h1, h2, h3 { margin: 0; padding: 0 }
 	float: left;
 	font-size: 5em;
 	line-height: .9;
-}
-	
+}	
 .blockquote {
   margin: 1em;
   padding: 0 0 0 1em;
@@ -656,8 +596,7 @@ h1, h2, h3 { margin: 0; padding: 0 }
 	width:100%;
 	margin-top:20px;
 	padding:15px;
-	background: transparent;
-	box-shadow: 0px 4px 0px;	
+	box-shadow: 0px 1px 0px;	
 	border-radius:3px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -715,7 +654,7 @@ h1, h2, h3 { margin: 0; padding: 0 }
 .btns p{
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-size:18px;
-	line-height:1.3;	
+	line-height:2.0;	
 }
 /*ANIMATION*/
 .btns:hover{
@@ -728,164 +667,6 @@ h1, h2, h3 { margin: 0; padding: 0 }
 }
 .btns:hover h3{
 	color:#ffbe12;	
-}
-/*DEMO 1*/
-.demo1 .btns.active span, 
-.demo1 .btns.active h3, 
-.demo1 .btns.active p{
-	-moz-transform: translateY(0px);
-	-webkit-transform: translateY(0px);
-	-o-transform: translateY(0px);
-	-ms-transform: translateY(0px);
-	transform: translateY(0px);
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-ms-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-.demo1 .btns.active span{
-	-webkit-transition-delay: 0.2s; 
-    transition-delay: 0.2s;	
-	-moz-transition-delay: 0.2s;	
-	-o-transition-delay: 0.2s;	
-	-ms-transition-delay: 0.2s;		
-}
-.demo1 .btns.active h3{
-	-webkit-transition-delay: 0.1s; 
-    transition-delay: 0.1s;	
-	-moz-transition-delay: 0.1s;	
-	-o-transition-delay: 0.1s;	
-	-ms-transition-delay: 0.1s;		
-}
-/*DEMO 2*/
-.demo2 .btns:hover span,
-.demo2 .btns:hover p{
-	-moz-transform: translateX(-200px);
-	-webkit-transform: translateX(-200px);
-	-o-transform: translateX(-200px);
-	-ms-transform: translateX(-200px);
-	transform: translateX(-200px);
-}
-.demo2 .btns:hover h3{
-	-moz-transform: translateX(200px);
-	-webkit-transform: translateX(200px);
-	-o-transform: translateX(200px);
-	-ms-transform: translateX(200px);
-	transform: translateX(200px);	 
-}
-.demo2 .btns.active span, 
-.demo2 .btns.active h3, 
-.demo2 .btns.active p{
-	-moz-transform: translateX(0px);
-	-webkit-transform: translateX(0px);
-	-o-transform: translateX(0px);
-	-ms-transform: translateX(0px);
-	transform: translateX(0px);
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-ms-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-.demo2 .btns.active span{
-	-webkit-transition-delay: 0.2s; 
-    transition-delay: 0.2s;	
-	-moz-transition-delay: 0.2s;	
-	-o-transition-delay: 0.2s;	
-	-ms-transition-delay: 0.2s;		
-}
-.demo2 .btns.active h3{
-	-webkit-transition-delay: 0.1s; 
-    transition-delay: 0.1s;	
-	-moz-transition-delay: 0.1s;	
-	-o-transition-delay: 0.1s;	
-	-ms-transition-delay: 0.1s;		
-}
-/*DEMO 3*/
-.demo3 .btns:hover span, 
-.demo3 .btns:hover h3{
-	-moz-transform: translateY(-20px);
-	-webkit-transform: translateY(-20px);
-	-o-transform: translateY(-20px);
-	-ms-transform: translateY(-20px);
-	transform: translateY(-20px);
-	opacity:0;
-}
-.demo3 .btns:hover p{
-	-moz-transform: translateY(20px);
-	-webkit-transform: translateY(20px);
-	-o-transform: translateY(20px);
-	-ms-transform: translateY(20px);
-	transform: translateY(20px);	
-}
-.demo3 .btns.active span, 
-.demo3 .btns.active h3, 
-.demo3 .btns.active p{
-	-moz-transform: translateY(0px);
-	-webkit-transform: translateY(0px);
-	-o-transform: translateY(0px);
-	-ms-transform: translateY(0px);
-	transform: translateY(0px);
-	opacity:1;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-ms-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
-}
-.demo3
- .btns.active span{
-	-webkit-transition-delay: 0.2s; 
-    transition-delay: 0.2s;	
-	-moz-transition-delay: 0.2s;	
-	-o-transition-delay: 0.2s;	
-	-ms-transition-delay: 0.2s;		
-}
-.demo3 .btns.active h3{
-	-webkit-transition-delay: 0.1s; 
-    transition-delay: 0.1s;	
-	-moz-transition-delay: 0.1s;	
-	-o-transition-delay: 0.1s;	
-	-ms-transition-delay: 0.1s;		
-}
-/*DEMO 4*/
-.demo4 .btns:hover span, 
-.demo4 .btns:hover h3, 
-.demo4 .btns:hover p{
-	-moz-transform: translateY(250px);
-	-webkit-transform: translateY(250px);
-	-o-transform: translateY(250px);
-	-ms-transform: translateY-250px);
-	transform: translateY(250px);
-}
-.demo4 .btns.active span, 
-.demo4 .btns.active h3, 
-.demo4 .btns.active p{
-	-moz-transform: translateY(0px);
-	-webkit-transform: translateY(0px);
-	-o-transform: translateY(0px);
-	-ms-transform: translateY(0px);
-	transform: translateY(0px);
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-ms-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-.demo4 .btns.active p{
-	-webkit-transition-delay: 0.2s; 
-    transition-delay: 0.2s;	
-	-moz-transition-delay: 0.2s;	
-	-o-transition-delay: 0.2s;	
-	-ms-transition-delay: 0.2s;		
-}
-.demo4 .btns.active h3{
-	-webkit-transition-delay: 0.1s; 
-    transition-delay: 0.1s;	
-	-moz-transition-delay: 0.1s;	
-	-o-transition-delay: 0.1s;	
-	-ms-transition-delay: 0.1s;		
 }
 footer{
   color: #77B82C;
@@ -930,7 +711,7 @@ footer a:hover{
   font-weight: bold;
 }
 .col-subnav .active{
-  border-top:5px solid orange;
+  border-top:5px solid Green;
  background: white;
   color: black;
 }
