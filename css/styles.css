@@ -1,652 +1,936 @@
-* {
-  margin: 0;
-  padding: 0;
+@charset "UTF-8";
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,300);
+@import url(https://fonts.googleapis.com/css?family=Sanchez);
+@import url(https://fonts.googleapis.com/css?family=Tangerine");
+
+
+@keyframes scroll {
+	0% { height: 0 }
+	100% { height: 100%; }
 }
+
+@keyframes type { 
+  from { width: 0; } 
+} 
+
+@keyframes type2 {
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{ width: 100; } 
+} 
+
+@keyframes blink {
+  to{opacity: .0;}
+}
+
+@keyframes scan {
+	from { top: 0 }
+	to { top: 100% }
+}
+
+
+/* I did remove the flickering effect, lot's of people though it was annnoying, maybe we can work on it to make it less annoying people will end up with headache
+ * @keyframes flicker {
+		0% { opacity: 0.15795 }
+		5% { opacity: 0.31511 }
+		10% { opacity: 0.94554 }
+		15% { opacity: 0.2469 }
+		20% { opacity: 0.62031 }
+		25% { opacity: 0.0293 }
+		30% { opacity: 0.00899 }
+		35% { opacity: 0.5344 }
+		40% { opacity: 0.12778 }
+		45% { opacity: 0.52042 }
+		50% { opacity: 0.3823 }
+		55% { opacity: 0.2198 }
+		60% { opacity: 0.9383 }
+		65% { opacity: 0.86615 }
+		70% { opacity: 0.68695 }
+		75% { opacity: 0.55749 }
+		80% { opacity: 0.96984 }
+		85% { opacity: 0.0361 }
+		90% { opacity: 0.24467 }
+		95% { opacity: 0.08351 }
+		100% { opacity: 0.54813 }
+}
+*/
+{
+	box-sizing: border-box;
+	}
+
+
+*{margin:0; padding:0;}
+/*CLEARFIX*/
+.clearfix:after {content: ".";	display: block;	clear: both; visibility: hidden; line-height: 0; height: 0;} 
+.clearfix {	display: inline-block; width:100%;} 
+html[xmlns] .clearfix {display: block;} 
+* html .clearfix {height: 1%;}
+
 body {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  font-color: #fff;
-  color: #444;
-  background: #333333;
-  width: 100%;
+		background:			#111;
+		color:				#fff;
+		font-family:		helvetica, arial, sans-serif;
+		font-size:			62.5%;
+		line-height:		2.1em;
+		margin:				0;
+		padding:			0;	
+}	
+a {
+	color:				#77B82C;	
+}	
+header, article {
+		margin:				0;
+		padding:			0;
+		display:			block;
+		width:				960px;
+		margin:				auto;
+		font-size:			1.2em;
+}	
+nav {
+		position:			relative;
+		border-bottom:		2px solid #77B82C;
+		background:			#000;
+		color:				#77B82C;	
+		height: 			50px;
+		display: 			block; 
+		box-shadow:			0px 0px 10px #000;
+		z-index: 			1; 
+}	
+nav ul {
+		position:			relative;
+		margin:				0;
+		padding:			0;
+		text-align:			right;
+		z-index:			100;
+		background:			#000;
+		padding-right:		100px;
+}	
+nav ul li {
+		list-style:			none;
+		margin:				0;
+		padding:			5px 10px;
+		display:			inline-block;
+		line-height:		35px;
+		z-index:			100;
+}	
+nav ul li a {
+		text-decoration:	none;
+		font-size:			1.2em;	
+		color:				#77B82C;
+		z-index:			100;
+}	
+nav ul li a.active, nav ul li a:hover {
+		color:				#fff;
+}	
+nav #handle {
+		width:				20px;
+		height:				20px;
+		border-radius:		10px;
+		position:			absolute;
+		top:				40px;
+		left:				50%;
+		margin-left:		-10px;
+		background:			#000;
+		z-index:			1;
+}	
+nav #handle .downarrow {
+		border:				5px solid transparent;		
+		border-top:			8px solid #FFFFFF;
+		position:			absolute;
+		left:				5px;
+		bottom:				0px;
 }
 
-.wrapper {
-  width: 90%;
-  margin: 0 auto;
-}
-.nav {
-  position:fixed;
-  background-color:black;
-  width:100%; height:8vh;
-  overflow:hidden;
-  display:grid;
-	grid-template-columns: 1.7vh 4.6vh 1fr 1fr 1fr 1fr 2vh .6vh 2vh 1.7vh;
-	grid-template-rows: 1.7vh 2vh .6vh 2vh 1.7vh 22vh;
-  background-color:white;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-  z-index:100000;
+.blurb {
+		clear:				both;
+}	
+/**
+ * CONTENTS - matrixmobs.css
+ *
+ * RESET
+ * Global reset and basic config.
+ *
+ * TAB LABELS
+ * Styling and basic functionality for tab labels.
+ *
+ * TAB CONTENT
+ * Styling for tab content.
+ *
+ */
+
+/*------------------------------------*\
+    #RESET
+\*------------------------------------*/
+.night-tabs a,
+.night-tabs div,
+.night-tabs em,
+.night-tabs img,
+.night-tabs ul,
+.night-tabs label,
+.night-tabs li,
+.night-tabs ol,
+.night-tabs p,
+.night-tabs span,
+.night-tabs ul {
+    /* ->>> Structure <<<-*/
+    border: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box /* CSS3 */
 }
 
-.clickable {
-  position:relative;
-  grid-column:7 / 10; grid-row:2 / 5;
-  cursor:pointer;
-  z-index:10000;
+/*------------------------------------*\
+    #TAB LABELS
+\*------------------------------------*/
+.night-tabs {
+    /* ->>> Structure <<<-*/
+    margin: 0 auto; /* Center Night Tabs; optional. */
+    width: 70%; /* Define width. */
+    font: 300 0px/1.5
+    "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Typography */
+    color: #ecf0f1 /* Text Colors */
 }
 
-.logodiv {
-  height:100%;
-  grid-column: 2 / 3; grid-row: 2 / 5;
-  z-index:4;
+.night-tabs input {display: none} /* Hide Checkbox. */
+.night-tabs input:checked+label {cursor: default} /* Set cursor type. */
+.night-tabs label {
+        /* ->>> Structure <<<-*/
+        display: inline-block;
+        z-index: 1;
+        border-bottom: 2px solid #353535;
+        border-right: 1px solid #77B82C;
+        border-left: 1px solid #77B82C;
+        /* ->>> Typography <<<-*/
+        cursor: pointer;
+        font-size: 18px;
+        line-height: 40px;
+        text-align: left;
+        /* ->>> CSS3 <<<-*/
+        -webkit-user-select: none; /* ->>> Prevents double-click selection. <<<-*/
+        -moz-user-select: none;
+        -ms-user-select: none
+    }
+.night-tabs label span {
+            display: block;
+            padding: .2em;
+            background: #404040
 }
-.logo {
-  position:relative;
-  height:4.7vh;
+.night-tabs label span span {
+                /* Structure */
+                border: 2px solid transparent;
+                padding: 0 1em;
+                /* CSS3*/
+                -webkit-transition: background .4s;
+                transition: background .4s
 }
-
-.minimize {
-  background-color: #28817a;
-  position:relative;
-  right: -10vh;
-  grid-column: 7 / 10;grid-row: 3 / 4;
-  -webkit-transition: all .5s; /* Safari */
-  transition: all .5s;
-  -webkit-transition-delay: .4s; /* Safari */
-  transition-delay: .4s;
+/*------------------------------------*\
+    #TAB CONTENT
+\*------------------------------------*/
+.night-tabs .night-tabs-content {
+    display: block; /* Structure */
+    font-size: 18px /* Typography */
 }
-.minimize-active {right:0px;}
-
-.c1 {
-  z-index:4;
-  position:relative;
-  grid-column: 7 / 8; grid-row: 2 / 3;
-  background-color:#28817a;
-  border-radius:100%;
-  padding:-5vh;
-  margin:px;
-  -webkit-transition: all .3s; /* Safari */
-  transition: all .3s;
-  top: 0px;
-  -webkit-transition-delay: .4s; /* Safari */
-  transition-delay: .4s;
-  z-index:10001;
-}
-.c2 {
-  z-index:4;
-  position:relative;
-  grid-column: 7 / 8; grid-row: 4 / 5;
-  background-color:#28817a;
-  border-radius:50%;
-  top: 0px;
-  -webkit-transition: top .3s; /* Safari */
-  transition: top .3s;
-  -webkit-transition-delay: .1s; /* Safari */
-  transition-delay: .1s;
-}
-.c3 {
-  z-index:4;
-  position:relative;
-  grid-column: 9 / 10; grid-row: 2 / 3;
-  background-color:#28817a;
-  border-radius:50%;
-  -webkit-transition: top .3s; /* Safari */
-  transition: top .3s;
-  top: 0px;
-  -webkit-transition-delay: .2s; /* Safari */
-  transition-delay: .2s;
-  
-}
-.c4 {
-  z-index:4;
-  position:relative;
-  grid-column: 9 / 10; grid-row: 4 / 5;
-  background-color:#28817a;
-  border-radius:50%;
-  -webkit-transition: top .3s; /* Safari */
-  transition: top .3s;
-  top: 0px;
+.night-tabs .night-tabs-content > li {
+        /* Structure */
+        left: 0;
+        opacity: 0;
+        overflow: auto;
+        padding: 1em 1.5em; /* ->>> Spacing for content. <<<-*/
+        position: absolute;
+        top: 0;
+        visibility: hidden;
+        width: 100%;
+        background: #404040; /* Colors */
+        /* CSS3 */
+        -webkit-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transition: all .8s .1s; /* ->>> Intensity of tab effects. <<<-*/
+        transition: all .8s .1s
 }
 
-.icondiv {
-  position:fixed;
-  z-index:10000;
-  top: 8vh; width: 100vw; height:22vh;
-  display:grid;
-  grid-template-columns: 24vw 24vw 24vw 24vw 4vw;
-  grid-template-rows: 30vh;
+@charset "UTF-8";
+/**
+ * CONTENTS - effects.css
+ *
+ * GENERAL STYLES
+ * Setup for tab effects.
+ *
+ * SLIDE EFFECTS
+ * Basic slide effects from different directions.
+ *
+ * ADVANCED EFFECTS
+ * Advanced effects (scale, rotate, flip)
+ *
+ */
+/*------------------------------------*\
+    #GENERAL STYLES
+\*------------------------------------*/
+.night-tabs>.content1:checked~ul>.content1,
+.night-tabs>.content2:checked~ul>.content2,
+.night-tabs>.content3:checked~ul>.content3,
+.night-tabs>.content4:checked~ul>.content4 {
+    /* Structure */
+    opacity: 1;
+    visibility: visible;
+    /* CSS3 */
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none
+}
+/*------------------------------------*\
+    #SLIDE EFFECTS
+\*------------------------------------*/
+/* ->>> Slide Up <<<-*/
+.night-tabs-animation-slide-up .night-tabs-content > li {
+    -webkit-transform: translateY(30px);
+    -ms-transform: translateY(30px);
+    transform: translateY(30px)
+}
+/* ->>> Slide Down <<<-*/
+.night-tabs-slide-down .night-tabs-content > li {
+    -webkit-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px)
+}
+/* ->>> Slide Left <<<-*/
+.night-tabs-animation-slide-left .night-tabs-content > li {
+    -webkit-transform: translateX(-30px);
+    -ms-transform: translateX(-30px);
+    transform: translateX(-30px)
+}
+/* ->>> Slide Right <<<-*/
+.night-tabs-animation-slide-right .night-tabs-content > li {
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px)
 }
 
-.c1-active {top:10vh;}
-.c2-active {top:10vh;}
-.c3-active {top:10vh;}
-.c4-active {top:10vh;}
-
-.i1 {
-  position: relative;
-  grid-column: 1 / 2;
-  top:-20vh;
-  -webkit-transition: all .2s; /* Safari */
-  transition: all .2s;
-  -webkit-transition: top 0.2s ease 0.4s, transform 0.1s ease 0s;
-  transition: top 0.2s ease 0.1s, transform 0.1s ease 0s;
+/* ->>> Slide Up + Left <<<-*/
+.night-tabs-slide-up-left .night-tabs-content > li {
+    -webkit-transform: translate(-30px, -30px);
+    -ms-transform: translate(-30px, -30px);
+    transform: translate(-30px, -30px)
 }
-.i2 {
-  position: relative;
-  grid-column: 2 / 3;
-  top:-20vh;
-  -webkit-transition: all .2s; /* Safari */
-  transition: all .2s;
-  -webkit-transition: top 0.2s ease 0.4s, transform 0.1s ease 0s;
-  transition: top 0.2s ease 0.2s, transform 0.1s ease 0s;
+/* ->>> Slide Up + Right <<<-*/
+.night-tabs-animation-slide-up-right .night-tabs-content > li {
+    -webkit-transform: translate(30px, -30px);
+    -ms-transform: translate(30px, -30px);
+    transform: translate(30px, -30px)
 }
-.i3 {
-  position: relative;
-  grid-column: 3 / 4;
-  top:-20vh;
-  -webkit-transition: top 0.2s ease 0.4s, transform 0.1s ease 0s;
-  transition: top 0.2s ease 0.3s, transform 0.1s ease 0s;
+/* ->>> Slide Down + Left <<<-*/
+.night-tabs-animation-slide-down-left .night-tabs-content > li {
+    -webkit-transform: translate(-30px, 30px);
+    -ms-transform: translate(-30px, 30px);
+    transform: translate(-30px, 30px)
 }
-.i4 {
-  position: relative;
-  grid-column: 4 / 5;
-  top:-20vh;
-  -webkit-transition: top 0.2s ease 0.4s, transform 0.1s ease 0s;
-  transition: top 0.2s ease 0.4s, transform 0.1s ease 0s;
+/* ->>> Slide Down + Right <<<-*/
+.night-tabs-animation-slide-down-right .night-tabs-content > li {
+    -webkit-transform: translate(30px, 30px);
+    -ms-transform: translate(30px, 30px);
+    transform: translate(30px, 30px)
 }
-
-.i1-active {top: 0px; transform: scale(.8)}
-.i2-active {top: 0px; transform: scale(.8)}
-.i3-active {top: 0px; transform: scale(.8)}
-.i4-active {top: 0px; transform: scale(.8)}
-
-.i1-active:hover {transform: scale(1.2) translatey(1vh);}
-.i2-active:hover {transform: scale(1.2) translatey(1vh);}
-.i3-active:hover {transform: scale(1.2) translatey(1vh);}
-.i4-active:hover {transform: scale(1.2) translatey(1vh);}
-
-.ibackground {
-  position:fixed;
-  width:100vw; height:30vh; top:0px; left:0px;
-  background-color:black; opacity:0;
-  -webkit-transition: opacity 1s ease;
-  transition: opacity 1s ease;
+/*------------------------------------*\
+    #SLIDE EFFECTS
+\*------------------------------------*/
+/* ->>> Rotate <<<-*/
+.night-tabs-rotate > ul > li {
+    -o-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -webkit-transform: rotate(10deg)
 }
-.ibackground-active {opacity:.6;}
-
-.icon {
-  position:relative;
-  transform: translate(-50%, -50%);
-  top:11vh; left: 12.5vw; height: 50%;
-  cursor:pointer;
+.night-tabs-animation-rotate.night-tabs.night-tabs-position-vleft > ul > li,
+.night-tabs-animation-rotate.night-tabs.night-tabs-position-vright > ul > li {
+    -o-transform: rotate(-10deg);
+    -ms-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg)
 }
-
-.fixed {
-  position:fixed;
-  height:100vh; left:0px; top:0px; width:100vw;
-  z-index:-1;
+/* ->>> Scale <<<-*/
+.night-tabs-animation-scale > ul > li {
+    -webkit-transform: scale(0.6, 0.6);
+    -ms-transform: scale(0.6, 0.6);
+    transform: scale(0.6, 0.6)
 }
-
-.grid {
-  display: grid;
-  position: relative;
-  height: 100vh;
-  grid-column-gap: 0px;
-	grid-template-columns: 1fr 30vh 1fr;
-	grid-template-rows: 45vh 30vh 25vh;
-  z-index:-1;
+/* ->>> Flip <<<-*/
+.night-tabs-animation-flip .night-tabs-content {
+    -webkit-perspective: 2000px;
+    perspective: 2000px;
+    -webkit-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%
 }
-
-.slogan {
-  position:relative;
-  background-color: rgba(0, 0, 0, .4);
-  grid-column: 1 / 4; grid-row: 1 / 2;
-  height:20%; top:30vh;
-  display:grid;
-  grid-template-columns: 1fr 8vh 1fr;
+.night-tabs-animation-flip .night-tabs-content > li {
+    -webkit-transform: rotateX(-90deg);
+    transform: rotateX(-90deg)
 }
-.ms {
-  position:relative;
-  grid-column: 1 / 2;
-  top:2vh;
-  text-align:right;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-weight: 100; line-height: 1; font-size: 4vh; word-spacing: 4px;
-  color:white;
+.night-tabs-animation-flip.night-tabs-position-vleft > .night-tabs-content > li {
+    -webkit-transform: rotateY(90deg);
+    transform: rotateY(90deg)
 }
-.line {
-  position:relative;
-  grid-column: 2 / 3;
-  top:2vh;
-  text-align:center;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-weight: 100; line-height: .85; font-size: 4vh; word-spacing: 4px;
-  color:white;
+.night-tabs-animation-flip.night-tabs-position-vright > .night-tabs-content > li {
+    -webkit-transform: rotateY(-90deg);
+    transform: rotateY(-90deg)
 }
-.lg {
-  position:relative;
-  grid-column: 3 / 4;
-  top:2vh;
-  text-align:left;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-weight: 100; font-size: 4vh; line-height: 1; word-spacing: 4px;
-  color:white;
-}
-
-#scene {
-  grid-column: 2 / 3; grid-row: 2 / 3;
-  overflow:hidden;
-  border:solid; border-color:white; border-width: .55vh; border-radius:50%;
-  background-color:white;
-  z-index: -10;
-  -webkit-transition: margin 0.1s ease, padding 0.1s ease;
-  transition: margin 0.1s ease, padding 0.1s ease;
-}
-
-.bubble-hoverer {
-  position:fixed;
-  transform:translate(-50%, -50%);
-  width: 30vh; height: 30vh; top:60vh; left:50vw;
-  cursor:pointer;
-  border-radius: 50%;
-  opacity:1;
-  z-index:1;
-}
-.bubble {margin: 1vh; padding: 0vh;}
-.bubble-active {margin: -2vh; padding: 3vh;}
-
-.see-work {
-  position:relative;
-  text-align:center;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-style: bold; font-size: 5vh; line-height:1; word-spacing: 4px;
-  color:white;
-  top:12vh;
-}
-
-#scene2 {
-  grid-column: 1 / 4; grid-row: 1 / 4;
-  overflow:hidden;
-  z-index:-20;
-  pointer-events: none;
-}
-
-.backsplash {
-  position:relative;
-  transform:translate(calc((((100vw - 30vh) / 2) *-1) - 50%), -45vh);
-  left: 50vw; width: auto; height:140vh; top: -20vh;
-  opacity:1;
-}
-
-@media screen and (min-aspect-ratio: 4/3) {
-  .backsplash {
-    position:relative;
-    transform:translate(calc((((100vw - 30vh) / 2) *-1) - 0%), calc(-45vh - 50%));
-    left: -20vw; top: 50vh; width: 140vw; height:auto;
-  }
-  }
-
-  .backsplash1 {
-  position:relative;
-  transform:translate(-50%, 0px);
-  left: 50vw; width: auto; height:120vh; top: -10vh;
-  z-index: -100;
-  }
-
-@media screen and (min-aspect-ratio: 4/3) {
-  .backsplash1 {
-    position:relative;
-    transform:translate(0%, -50%);
-    left: -10vw; top: 50vh; width: 120vw; height:auto;
-  }
-}
-
-.portfolio {
-  padding: 0px;
-  height:2000px; top: 100vh;
-  position:relative;
-  background-color: #13211e;
-  display:grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-	grid-template-rows: repeat(200, calc(100vw / 12));
-  z-index:100;
-}
-
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: "Roboto Slab", serif;
-  color: #009933;
-}
-
-h1 {
-  font-size: 1.6em;
-  float: left;
-  width: 60%;
-  text-align: center;
-  margin-top: 40px;
-}
-
-a small {
-  text-decoration: none;
-  margin-top: 1em;
-  color: #66ff33;
-  font-weight: bold;
-  display: block;
-}
-
-a small:hover {
-  color: #006600;
-}
-
-
-
-header::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-main,
-article {
-  background: #000000;
-  border-radius: 5px;
-  padding: 2.5em 1.1em;
-  margin-top: 1em;
-  line-height: 1.5em;
-}
-
-main h2,
-article h2 {
-  margin-bottom: 0.3em;
-  line-height: 1.2em;
-}
-
-main h3 {
-  margin: 1.7em 0 0.3em;
-}
-
-article.warning-signs-article small.flat-icon {
+/**
+ * CONTENTS - layouts.css
+ *
+ * HORIZONTAL POSITIONS
+ * Basic horizontal positions: top, left, right, and justify.
+ *
+ * VERTICAL POSITIONS
+ * Basic vertical positions, vertical left and vertical right.
+ *
+ */
+/*------------------------------------*\
+    #HORIZONTAL POSITIONS
+\*------------------------------------*/
+/* ->>> Left, Center, Right <<<-*/
+.night-tabs-position-left label,
+.night-tabs-position-center label,
+.night-tabs-position-right label {width: auto}
+.night-tabs-position-left {text-align: left}
+.night-tabs-position-center {text-align: center}
+.night-tabs-position-right {text-align: right}
+/* ->>> Justified <<<-*/
+.night-tabs-position-justify > input:first-child + label {padding-left: 0}
+.night-tabs-position-justify2 > label {width: 50%}
+.night-tabs-position-justify3 > label {width: 33.33%}
+.night-tabs-position-justify4 > label {width: 25%}
+/*------------------------------------*\
+    #VERTICAL POSITIONS
+\*------------------------------------*/
+/* ->>> General Styles <<<-*/
+.night-tabs-position-vleft .night-tabs-content > li,
+.night-tabs-position-vright .night-tabs-content > li {border-top: 0}
+.night-tabs-position-vleft > label,
+.night-tabs-position-vright > label {
+    clear: left;
     display: block;
-  text-align: center;
-  font-size: .6em;
-}
-
-article .circle {
-  width: 40%;
-  border-radius: 50%;
-  border: 0.3em solid #009933;
-  margin: 0 auto;
-  padding: 1.5em 0em;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-  text-align: center;
-}
-article .circle img {
-  width: 40%;
-}
-article p.projects {
-  font-weight: bold;
-  margin-bottom: 0.5em;
-  font-family: "Roboto Slab", serif;
-  text-align: center;
-}
-article p.project-description {
-  font-size: 0.9em;
-  text-align: center;
-}
-
-article.goals h2 {
-  margin-bottom: 0.6em;
-}
-
-article.goals ul {
-  margin-left: 1.2em;
-  margin-top: 0.5em;
-}
-
-article.get-involved h5 {
-  text-align: center;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-article.get-involved h5 strong {
-  font-weight: bolder;
-}
-
-article.get-involved h4 {
-  margin-top: 0.8em;
-}
-
-article.get-involved ul {
-  margin-left: 1.5em;
-  margin-top: 0.5em;
-}
-
-article.get-involved li a {
-  text-decoration: none;
-  color: #28aaad;
-}
-
-article.get-involved li a:hover {
-  color: #10585e;
-}
-
-article.get-involved li a:visited {
-  color: #07454a;
-}
-
-footer {
-  background: #000000;
-  height: 90px;
-  margin-top: 2em;
-  text-align: center;
-  padding-top: 1.5em;
-  width: 100%;
-}
-
-footer small {
-  display: block;
-  margin-bottom: 0.5em;
-}
-
-footer a {
-  text-decoration: none;
-  color: #28aaad;
-  margin: 0;
-}
-
-footer a:hover {
-  color: #10585e;
-}
-
-footer a:visited {
-  color: #07454a;
-}
-
-button {
-  height: 3em;
-  border: none;
-  color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin: 0;
-  cursor: pointer;
-}
-
-button.donate-btn {
-  width: 23%;
-  background: #aa2d29;
-}
-button.donate-btn:hover {
-  background: #c41a15;
-}
-
-button.moreinfo-btn {
-  width: 43%;
-  background: #31aa29;
-}
-
-button.moreinfo-btn:hover {
-  background: #19c30e;
-}
-
-button.getInvolved-btn {
-  width: 30%;
-  background: #28aaad;
-}
-
-button.getInvolved-btn:hover {
-  background: #0bc3c7;
-}
-
-/*============ Media Queries==== ========*/
-@media only screen and (min-width: 430px) {
-  header img {
-    width: 30%;
-  }
-}
-@media only screen and (min-width: 600px) {
-  header h1 {
-    font-size: 1.7em;
-    margin-left: 1em;
-  }
-  header img {
-    width: 20%;
-    margin-right: 1em;
-  }
-  article h2 {
-    text-align: center;
-  }
-  article div.warning-sign {
     float: left;
-    width: 50%;
-    text-align: center;
-  }
-  article div.warning-sign-container::after {
-    content: "";
-    clear: both;
+    margin-right: 0;
+    width: 25%
+}
+/* ->>> Vertical Left <<<-*/
+.night-tabs-position-vleft label {border-right: 2px solid #333}
+.night-tabs-position-vleft > .night-tabs-content {margin-left: 25%}
+/* ->>> Vertical Right <<<-*/
+.night-tabs-position-vright > label {
+    clear: right;
+    float: right
+}
+.night-tabs-position-vright ul li { border-right: 1px solid #333}
+.night-tabs-position-vright > .night-tabs-content {margin-right: 25%}
+.night-tabs-position-vright .night-tabs-content > li {
+    -webkit-transform-origin: 100% 0%;
+    -ms-transform-origin: 100% 0%;
+    transform-origin: 100% 0%
+}
+/**
+ * CONTENTS - typography.css
+ *
+ * BASIC TYPOGRAPHY
+ * Styles for headings,paragraphs, and links.
+ *
+ * EXTENDED TYPOGRAPHY
+ * Styling for images, unordered and ordered lists, and utility classes.
+ *
+ * GRID SYSTEM
+ * Basic 12 fluid column grid system with offset support.
+ *
+ */
+/*------------------------------------*\
+    #BASIC TYPOGRAPHY
+\*------------------------------------*/
+/* ->>> Headings <<<-*/
+h1, h2, h3 { margin: 0; padding: 0 }
+.night-tabs .night-tabs-content li .h1,
+.night-tabs .night-tabs-content li .h2,
+.night-tabs .night-tabs-content li .h3 {
+    font-weight: 300;
+    line-height: 1.5
+}
+.night-tabs .night-tabs-content li .h1 {font-size: 3em}
+.night-tabs .night-tabs-content li .h2 {font-size: 2.2em}
+.night-tabs .night-tabs-content li .h3 {font-size: 1.4em}
+
+/* ->>> Paragraphs <<<-*/
+.night-tabs .night-tabs-content li p {
+    margin: .5em 0;
+    font-size: 1em
+}
+/* ->>> Links <<<-*/
+.night-tabs .night-tabs-content li a {color: #77B82C}
+
+.night-tabs .night-tabs-content li a:hover,
+.night-tabs .night-tabs-content li a:focus {text-decoration: none}
+/* ->>> FontAwesome <<<-*/
+.night-tabs .fa { margin-right: .5em }
+/*------------------------------------*\
+    #EXTENDED TYPOGRAPHY
+\*------------------------------------*/
+/* ->>> Images <<<-*/
+.night-tabs .night-tabs-content li img {
+    max-width: 100%;
+    height: auto
+}
+/* ->>> Lists <<<-*/
+.night-tabs .night-tabs-ordered-list,
+.night-tabs .night-tabs-unordered-list {
+    margin-top: .3em;
+    padding-left: 2.5em
+}
+.night-tabs .night-tabs-ordered-list {list-style: decimal}
+.night-tabs .night-tabs-unordered-list { list-style: disc}
+/* ->>> Utility <<<-*/
+/* Positioning */
+.text-center {text-align: center}
+.text-left {text-align: left}
+.text-right {text-align: right}
+.pull-left {float: left}
+.pull-right {float: right}
+/* Preformatted */
+.dropcap {
+  font-family: "Sanchez", Rockwell, slab-serif;
+	float: left;
+	font-size: 5em;
+	line-height: .9;
+}
+	
+.blockquote {
+  margin: 1em;
+  padding: 0 0 0 1em;
+  border-left: 3px solid #77B82C
+}
+.well {
+    background: #77B82C;
+    padding: 1em!important
+}
+/*------------------------------------*\
+    #GRID SYSTEM
+\*------------------------------------*/
+/* ->>> Micro-Clearfix <<<-*/
+.night-tabs .grid-row:after {
+    content: '';
     display: table;
-  }
-  article .circle {
-    width: 25%;
-    padding: 1em 0em;
-  }
-  article .circle img {
-    width: 50%;
-  }
-  article p.symptoms {
-    font-weight: bold;
-    margin: 0 auto 0.5em;
-    font-family: "Roboto Slab", serif;
-    width: 50%;
-  }
-  article p.project-description {
-    font-size: 0.8em;
-    width: 50%;
-    margin: 0 auto;
-  }
+    clear: both
 }
+/* ->>> Basic Structure <<<-*/
+.night-tabs .grid-row {margin-top: 1em}
+.night-tabs .grid-row:first-child {margin-top: 0}
 
-@media only screen and (min-width: 750px) {
-  header h1 {
-    font-size: 2.1em;
-    margin-left: 1em;
-  }
-  header img {
-    width: 20%;
-    margin: 0.5em 1em 0 0;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  header h1 {
-    font-size: 2.9em;
-    margin-top: .6em;
-    margin-left: 0em;
-  }
-  h2 {
-    font-size: 2.5em;
-  }
-  main,
-  article.goals,
-  article.get-involved {
-    padding: 2em;
-  }
-  article div.warning-sign {
-    width: 20%;
-  }
-  article.warning-signs-article a small {
-    margin-left: 2em;
-  }
-  article .circle {
-    width: 40%;
-    padding: 1em 0em;
-    margin: 2em auto;
-    border-width: 8px;
-  }
-  article div.warning-sign p {
-    width: 90%;
-  }
-  article p.projects {
-    text-align: center;
-  }
-  article p.project-description {
-    font-size: 1em;
-    text-align: left;
-  }
-  article.goals p {
-    width: 80%;
-    text-align: center;
-    margin: 0 auto;
-  }
-  article.goals ul {
-    margin-left: 20%;
-    margin-top: 2em;
-  }
-  article ul {
-    width: 80%;
-    margin: 2em auto;
-    padding-left: 4em;
-  }
-  article ul li {
-    margin: 0.5em 0;
-  }
-  article.get-involved div.lg-left {
+.night-tabs .grid-column {
+    display: block;
     float: left;
-  }
-  article.get-involved div.lg-right {
-    float: right;
-  }
-  article.get-involved h4 {
-    margin-bottom: 1em;
-    margin-left: 2em;
-    font-size: 1.3em;
-  }
-  article.get-involved::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+    width: 100%;
+    margin-left: 2%
 }
-
-@media only screen and (min-width: 1300px) {
-  
-  article.get-involved div.lg-left {
-    margin-left: 10%;
-  }
-  article.get-involved div.lg-right {
-    margin-right: 10%;
-  }
+.night-tabs .grid-column:first-child { margin-left: 0}
+/* ->>> Grid System Config <<<-*/
+.night-tabs .grid-column-1 {width: 6.5%}
+.night-tabs .grid-column-2 {width: 15%}
+.night-tabs .grid-column-3 {width: 23.5%}
+.night-tabs .grid-column-4 {width: 32%}
+.night-tabs .grid-column-5 {width: 40.5%}
+.night-tabs .grid-column-6 {width: 49%}
+.night-tabs .grid-column-7 {width: 57.5%}
+.night-tabs .grid-column-8 {width: 66%}
+.night-tabs .grid-column-9 {width: 74.5%}
+.night-tabs .grid-column-10 {width: 83%}
+.night-tabs .grid-column-11 {width: 91.5%}
+.night-tabs .grid-column-offset-1,
+.night-tabs .grid-column-offset-1:first-child{margin-left:8.5%}
+.night-tabs .grid-column-offset-2,
+.night-tabs .grid-column-offset-2:first-child{margin-left:17%}
+.night-tabs .grid-column-offset-3,
+.night-tabs .grid-column-offset-3:first-child{margin-left:25.5%}
+.night-tabs .grid-column-offset-4,
+.night-tabs .grid-column-offset-4:first-child{margin-left:34%}
+.night-tabs .grid-column-offset-5,
+.night-tabs .grid-column-offset-5:first-child{margin-left:42.5%}
+.night-tabs .grid-column-offset-6,
+.night-tabs .grid-column-offset-6:first-child{margin-left:51%}
+.night-tabs .grid-column-offset-7,
+.night-tabs .grid-column-offset-7:first-child{margin-left:59.5%}
+.night-tabs .grid-column-offset-8,
+.night-tabs .grid-column-offset-8:first-child{margin-left:68%}
+.night-tabs .grid-column-offset-9,
+.night-tabs .grid-column-offset-9:first-child{margin-left:76.5%}
+.night-tabs .grid-column-offset-10,.night-tabs .grid-column-offset-10:first-child{margin-left:85%}
+.night-tabs .grid-column-offset-11,.night-tabs .grid-column-offset-11:first-child{margin-left:93.5%}
+/**
+ * CONTENTS - colors.css
+ *
+ * COLORS
+ * Default (Gray/Grey), Red, Blue, Green, Purple, Orange, Yellow, Pink, Brown, Teal, Turquoise.
+ *currently changing colors****
+ */
+/*------------------------------------*\
+    #COLORS
+\*------------------------------------*/
+/* ->>> Default (Gray/Grey ( selected green)) <<<-*/
+.night-tabs label:hover span span,
+.night-tabs input:checked+label span span,
+.night-tabs-color-default label:hover span span,
+.night-tabs-color-default input:checked+label span span{background: #77B82C}
+/* ->>> Blue <<<-*/
+.night-tabs-color-blue label:hover span span,
+.night-tabs-color-blue input:checked+label span span {background: #1e8bc3}
+/* ->>> Red <<<-*/
+.night-tabs-color-red label:hover span span,
+.night-tabs-color-red input:checked+label span span {background: #ef4836}
+/* ->>> Green <<<-*/
+.night-tabs-color-green label:hover span span,
+.night-tabs-color-green input:checked+label span span {background: #27ae60}
+/* ->>> Purple <<<-*/
+.night-tabs-color-purple label:hover span span,
+.night-tabs-color-purple input:checked+label span span {background: #9b59b6}
+/* ->>> Orange <<<-*/
+.night-tabs-color-orange label:hover span span,
+.night-tabs-color-orange input:checked+label span span {background: #F9690E}
+/* ->>> Yellow <<<-*/
+.night-tabs-color-yellow label:hover span span,
+.night-tabs-color-yellow input:checked+label span span {background: #a8880a}
+/* ->>> Pink <<<-*/
+.night-tabs-color-pink label:hover span span,
+.night-tabs-color-pink input:checked+label span span {background: #dB0a5b}
+/* ->>> Brown <<<-*/
+.night-tabs-color-brown label:hover span span,
+.night-tabs-color-brown input:checked+label span span {background: #926239}
+/* ->>> Teal <<<-*/
+.night-tabs-color-teal label:hover span span,
+.night-tabs-color-teal input:checked+label span span {background: #008080}
+/* ->>> Turquoise <<<-*/
+.night-tabs-color-turquoise label:hover span span,
+.night-tabs-color-turquoise input:checked+label span span {background: #16a085}
+/**
+ * CONTENTS - mobile.css
+ *
+ * RESPONSIVE STACKING
+ * Tabs stack on top of each other on mobile devices.
+ *
+ */
+/*------------------------------------*\
+    #RESPONSIVE STACKING
+\*------------------------------------*/
+@media screen and (max-width: 48em) {
+.night-tabs .grid-column,
+.night-tabs .grid-column:first-child {
+        float: none;
+        width: 100%;
+        margin: 1em 0 0 0
+    }
+.night-tabs > label {
+        display: block;
+        float: none;
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        text-align: left;
+        margin: 0
 }
-
-@media only screen and (min-width: 1400px) {
-   header h1 {
-    font-size: 4em;
-    margin-top: 0.5em;
-    margin-left: 0em;
-  }
+.night-tabs > .night-tabs-content {
+        margin-top: 0;
+        margin-right: 0;
+        margin-left: 0
+}
+.night-tabs > .night-tabs-content > li {
+        -webkit-transform-origin: 50% 0%;
+        -ms-transform-origin: 50% 0%;
+        transform-origin: 50% 0%
+}
+.night-tabs.night-tabs-animation-flip > ul > li {
+        -webkit-transform: rotateX(-90deg);
+        transform: rotateX(-90deg)
+    }
+}
+/*PLAYER*/
+#wrapper{
+	width:750px;
+	margin: 100px auto;
+	position:relative;	
+}
+.widget{
+	width:100%;
+	margin-top:20px;
+	padding:15px;
+	background: transparent;
+	box-shadow: 0px 4px 0px;	
+	border-radius:3px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	opacity:0;
+	-moz-transform: translateY(50px);
+	-webkit-transform: translateY(50px);
+	-o-transform: translateY(50px);
+	-ms-transform: translateY(50px);
+	transform: translateY(50px);
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;	
+}
+.widget.showdemo{
+	opacity:1;
+	-moz-transform: translateY(0px);
+	-webkit-transform: translateY(0px);
+	-o-transform: translateY(0px);
+	-ms-transform: translateY(0px);
+	transform: translateY(0px);
+}
+/*BUTTONS*/
+.btns{
+	padding:15px;
+	float:left;
+	width:25%;
+	min-height:30px;
+	border-left:1px solid #77B82C;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align:center;
+	color:#333;
+	height:100%;
+	overflow:hidden;
+}
+.btns:first-child{
+	border-left:none;
+}
+.btns span.fa{
+	font-size:60px;
+	display:block;
+	margin:0 auto;
+	width:100%;
+}
+.btns h3{
+	font-family: 'Amatic SC', cursive;
+	font-size:30px;	
+	margin: 20px 0 8px;
+	color:#77B82C;
+}
+.btns p{
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size:18px;
+	line-height:1.3;	
+}
+/*ANIMATION*/
+.btns:hover{
+	cursor:pointer;
+	-webkit-transition: background 0.3s ease;
+	-moz-transition: background 0.3s ease;
+	-ms-transition: background 0.3s ease;
+	-o-transition: background 0.3s ease;
+	transition: background 0.3s ease;	
+}
+.btns:hover h3{
+	color:#ffbe12;	
+}
+/*DEMO 1*/
+.demo1 .btns.active span, 
+.demo1 .btns.active h3, 
+.demo1 .btns.active p{
+	-moz-transform: translateY(0px);
+	-webkit-transform: translateY(0px);
+	-o-transform: translateY(0px);
+	-ms-transform: translateY(0px);
+	transform: translateY(0px);
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+.demo1 .btns.active span{
+	-webkit-transition-delay: 0.2s; 
+    transition-delay: 0.2s;	
+	-moz-transition-delay: 0.2s;	
+	-o-transition-delay: 0.2s;	
+	-ms-transition-delay: 0.2s;		
+}
+.demo1 .btns.active h3{
+	-webkit-transition-delay: 0.1s; 
+    transition-delay: 0.1s;	
+	-moz-transition-delay: 0.1s;	
+	-o-transition-delay: 0.1s;	
+	-ms-transition-delay: 0.1s;		
+}
+/*DEMO 2*/
+.demo2 .btns:hover span,
+.demo2 .btns:hover p{
+	-moz-transform: translateX(-200px);
+	-webkit-transform: translateX(-200px);
+	-o-transform: translateX(-200px);
+	-ms-transform: translateX(-200px);
+	transform: translateX(-200px);
+}
+.demo2 .btns:hover h3{
+	-moz-transform: translateX(200px);
+	-webkit-transform: translateX(200px);
+	-o-transform: translateX(200px);
+	-ms-transform: translateX(200px);
+	transform: translateX(200px);	 
+}
+.demo2 .btns.active span, 
+.demo2 .btns.active h3, 
+.demo2 .btns.active p{
+	-moz-transform: translateX(0px);
+	-webkit-transform: translateX(0px);
+	-o-transform: translateX(0px);
+	-ms-transform: translateX(0px);
+	transform: translateX(0px);
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+.demo2 .btns.active span{
+	-webkit-transition-delay: 0.2s; 
+    transition-delay: 0.2s;	
+	-moz-transition-delay: 0.2s;	
+	-o-transition-delay: 0.2s;	
+	-ms-transition-delay: 0.2s;		
+}
+.demo2 .btns.active h3{
+	-webkit-transition-delay: 0.1s; 
+    transition-delay: 0.1s;	
+	-moz-transition-delay: 0.1s;	
+	-o-transition-delay: 0.1s;	
+	-ms-transition-delay: 0.1s;		
+}
+/*DEMO 3*/
+.demo3 .btns:hover span, 
+.demo3 .btns:hover h3{
+	-moz-transform: translateY(-20px);
+	-webkit-transform: translateY(-20px);
+	-o-transform: translateY(-20px);
+	-ms-transform: translateY(-20px);
+	transform: translateY(-20px);
+	opacity:0;
+}
+.demo3 .btns:hover p{
+	-moz-transform: translateY(20px);
+	-webkit-transform: translateY(20px);
+	-o-transform: translateY(20px);
+	-ms-transform: translateY(20px);
+	transform: translateY(20px);	
+}
+.demo3 .btns.active span, 
+.demo3 .btns.active h3, 
+.demo3 .btns.active p{
+	-moz-transform: translateY(0px);
+	-webkit-transform: translateY(0px);
+	-o-transform: translateY(0px);
+	-ms-transform: translateY(0px);
+	transform: translateY(0px);
+	opacity:1;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+.demo3
+ .btns.active span{
+	-webkit-transition-delay: 0.2s; 
+    transition-delay: 0.2s;	
+	-moz-transition-delay: 0.2s;	
+	-o-transition-delay: 0.2s;	
+	-ms-transition-delay: 0.2s;		
+}
+.demo3 .btns.active h3{
+	-webkit-transition-delay: 0.1s; 
+    transition-delay: 0.1s;	
+	-moz-transition-delay: 0.1s;	
+	-o-transition-delay: 0.1s;	
+	-ms-transition-delay: 0.1s;		
+}
+/*DEMO 4*/
+.demo4 .btns:hover span, 
+.demo4 .btns:hover h3, 
+.demo4 .btns:hover p{
+	-moz-transform: translateY(250px);
+	-webkit-transform: translateY(250px);
+	-o-transform: translateY(250px);
+	-ms-transform: translateY-250px);
+	transform: translateY(250px);
+}
+.demo4 .btns.active span, 
+.demo4 .btns.active h3, 
+.demo4 .btns.active p{
+	-moz-transform: translateY(0px);
+	-webkit-transform: translateY(0px);
+	-o-transform: translateY(0px);
+	-ms-transform: translateY(0px);
+	transform: translateY(0px);
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+.demo4 .btns.active p{
+	-webkit-transition-delay: 0.2s; 
+    transition-delay: 0.2s;	
+	-moz-transition-delay: 0.2s;	
+	-o-transition-delay: 0.2s;	
+	-ms-transition-delay: 0.2s;		
+}
+.demo4 .btns.active h3{
+	-webkit-transition-delay: 0.1s; 
+    transition-delay: 0.1s;	
+	-moz-transition-delay: 0.1s;	
+	-o-transition-delay: 0.1s;	
+	-ms-transition-delay: 0.1s;		
+}
+footer{
+  color: #77B82C;
+	margin: 1400px 0px 0px 0px; 	
+}
+footer a{
+  color: #bfffff;
+}
+footer a:hover{
+  color: white;
+}
+.footer-bottom{
+  background: #333;
+  padding: 2em;
+}
+.footer-top{
+  background: #333;  
+}
+.footer-middle{
+   background: #000000;
+  padding-top: 2em;
+  color: green;
+}
+/**Sub Navigation**/
+.subnavigation-container{
+  background: #3d6277;
+}
+.subnavigation .nav-link{
+  color: white;
+  font-weight: bold;
+}
+.subnavigation-container{
+  text-align: center;
+}
+.subnavigation-container .navbar{
+  display: inline-block;
+  margin-bottom: -6px; /* Inline-block margin offffset HACK -Gilron */
+}
+.col-subnav a{
+  padding: 1rem 1rem;
+  color: white;
+  font-weight: bold;
+}
+.col-subnav .active{
+  border-top:5px solid orange;
+ background: white;
+  color: black;
 }
